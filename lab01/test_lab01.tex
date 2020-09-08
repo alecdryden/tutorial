@@ -1,0 +1,132 @@
+ % Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper]{article}
+% \usepackage{fullpage}
+% \usepackage[left=1in,top=1in,right=1in,bottom=1in,headheight=3ex,headsep=3ex]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{soul}   % For underlining
+\usepackage{tcolorbox}  % For boxes
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{titlesec} % For custom section titles
+\usepackage{boxedminipage} % For inline text boxes
+\usepackage{listings}
+
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+\newcommand{\labnum}{07}
+\title{Resource \labnum\hspace{1mm} Test}
+\date{}
+
+% Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[sc]{mathpazo}
+\linespread{1.05} % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+\usepackage[mmddyyyy]{datetime}% http://ctan.org/pkg/datetime
+\usepackage{advdate}% http://ctan.org/pkg/advdate
+\newdateformat{syldate}{\twodigit{\THEMONTH}/\twodigit{\THEDAY}}
+\newsavebox{\MONDAY}\savebox{\MONDAY}{Mon}% Mon
+\newcommand{\week}[1]{%
+%  \cleardate{mydate}% Clear date
+% \newdate{mydate}{\the\day}{\the\month}{\the\year}% Store date
+  \paragraph*{\kern-2ex\quad #1, \syldate{\today} - \AdvanceDate[4]\syldate{\today}:}% Set heading  \quad #1
+%  \setbox1=\hbox{\shortdayofweekname{\getdateday{mydate}}{\getdatemonth{mydate}}{\getdateyear{mydate}}}%
+  \ifdim\wd1=\wd\MONDAY
+    \AdvanceDate[7]
+  \else
+    \AdvanceDate[7]
+  \fi%
+}
+\usepackage{setspace}
+\usepackage{multicol}
+%\usepackage{indentfirst}
+\usepackage{fancyhdr,lastpage}
+\usepackage{url}
+\pagestyle{fancy}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{layout}
+
+\lhead{\footnotesize ME 316: Mechatronics and Measurements Laboratory}
+\chead{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Modify header here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\rhead{\footnotesize Test}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lfoot{}
+\cfoot{\small \thepage/\pageref*{LastPage}}
+\rfoot{}
+
+\usepackage{array, xcolor}
+\usepackage{color,hyperref}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\hypersetup{colorlinks,breaklinks,linkcolor=mygreen,urlcolor=mygreen,anchorcolor=mygreen,citecolor=mygreen}
+
+% Change section formats
+\titleformat{\section}{\bfseries\Large}{Resource \labnum.\arabic{section}}{6pt}{}
+\titleformat{\subsection}{\itshape\large}{Resource \labnum.\arabic{section}.\arabic{subsection}}{6pt}{}
+\titleformat{\subsubsection}{\normalsize}{Resource \labnum.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{6pt}{}
+
+\definecolor{mygreen}{RGB}{36,130,50}
+\hypersetup{colorlinks,breaklinks,linkcolor=mygreen,urlcolor=mygreen,anchorcolor=mygreen,citecolor=mygreen}
+
+\newcommand{\OL}{\includegraphics[height=5mm]{OL_image.png}\hspace{1mm}}
+
+\lstset{
+basicstyle=\footnotesize,
+breaklines=true,
+breakatwhitespace=false,
+xleftmargin=1em,
+frame=single,
+% numbers=left,
+% numbersep=5pt,
+commentstyle=\color{mygreen},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+firstnumber=1000,                % start line enumeration with line 1000
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{blue},       % keyword style
+morekeywords={*,...},            % if you want to add more keywords to the set
+numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{mymauve},     % string literal style
+tabsize=2,	                   % sets default tabsize to 2 spaces
+}
+  
+\newcommand\mylstcaption{}
+
+\surroundwithmdframed[
+hidealllines=true,
+middleextra={
+  \node[anchor=west] at (O|-P)
+    {\lstlistingname~\thelstlisting\  (Cont.):~\mylstcaption};},
+secondextra={
+  \node[anchor=west] at (O|-P)
+    {\lstlistingname~\thelstlisting\  (Cont.):~\mylstcaption};},
+splittopskip=2\baselineskip
+]{lstlisting}
+
+\begin{document}
+
+\maketitle
+\vspace{-1.5cm}
+
+
+
+\end{document}
